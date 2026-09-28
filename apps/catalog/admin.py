@@ -18,7 +18,7 @@ class DishAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_select_related = ('category',)
     date_hierarchy = 'created_at'
-    # readonly_fields = ('created_at', 'updated_at')
+    readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
         ('Основное', {
         'fields': ('category', 'name', 'slug', 'description')

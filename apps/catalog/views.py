@@ -27,7 +27,7 @@ def get_catalog(request):
     content={
         'dishes':dishes
     }
-    return render(request,'catalog/catlist.html')
+    return render(request,'catalog/catlist.html',content)
 
 
 # Create your views here.

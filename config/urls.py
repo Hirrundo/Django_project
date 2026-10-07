@@ -21,6 +21,7 @@ from apps.catalog.views import my_view,get_by_id,hello
 from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/catalog/', include('apps.catalog.urls_api')),
     path('catalog/', include('apps.catalog.urls')),
     path('account/', include('apps.accounts.urls')),
     path('carts/', include('apps.carts.urls')),

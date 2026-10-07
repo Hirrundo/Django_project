@@ -38,4 +38,8 @@ def cart_detail_view(request):
         'items': items,
     }
     return render(request, 'carts/cart_detail.html', context)
+
+def dish_detail(request, slug):
+    dish = get_object_or_404(Dish, slug=slug, is_available=True)
+    return render(request, 'catalog/dish_detail.html', {'dish': dish})
 # Create your views here.

@@ -3,13 +3,14 @@
  {%block content%}
  {%if dish%}
     <h1>Блюдо на заказ {{dish.name|upper}}</h1>
-   {{dish.price}}
-   
-   <br>
-    {{dish.created_at|date:'d.m.Y'}}
+      <p>Цена: {{ dish.price }} ₽</p>
+        <p>Добавлено: {{ dish.created_at|date:'d.m.Y' }}</p>
 
-
-    {% comment %} <p>{{message}} </p> {% endcomment %}
+        {# ✅ Добавьте сюда форму, если её тут не было #}
+        <form action="{% url 'add' dish.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">В корзину</button>
+        </form>
     {% else %}
     <h1>нет такого</h1>
     {%endif%}
